@@ -89,7 +89,7 @@ print('main() - successfully disconnected from: ' +str(v_ip_ingressLSR))
 
 # recursive function, will loop through until router which does PHP 
 if v_outerLabel != str('3'):
-     print('main() - detected label ' + str(v_outerLabel) + '. entering transitLSR function')
+     print('main() - detected label ' + str(v_outerLabel) + ' - entering transitLSR function')
      transitLSR(v_ip_egressLSR, v_nextLSR[0])
 else:
      print('main() - detected label 3 so ' + str(v_nextLSR[0]) + ' is the last hop. not entering recursive TransitLSR function')
