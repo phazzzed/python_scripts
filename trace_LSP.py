@@ -4,13 +4,13 @@ from jnpr.junos.exception import ConnectError
 from pprint import pprint
 from lxml import etree
 import sys
-import ipaddress
+import uname_pass 
 
 # this function is only invoked on the transit LSR
 # this is recursive so this should be looped through while within the transit LSR
 def transitLSR(v_egressLSR, v_currentLSR):
-     UID = 'eng'
-     PWD = 'cmn123!'
+     UID = uname_pass.username 
+     PWD = uname_pass.password 
      
      #print('transitLSR() - attempting to connect to: ' + str(v_currentLSR))
      current_router = Device(host=v_currentLSR, password=PWD, user=UID, normalize=True)
@@ -45,8 +45,8 @@ def transitLSR(v_egressLSR, v_currentLSR):
           return
     
 
-UID = 'eng'
-PWD = 'cmn123!'
+UID = uname_pass.username 
+PWD = uname_pass.password 
 
 v_ip_ingressLSR = sys.argv[1]
 L3VPN = sys.argv[2] 

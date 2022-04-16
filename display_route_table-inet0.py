@@ -1,9 +1,10 @@
 from jnpr.junos import Device
 from jnpr.junos.exception import ConnectError
 from pprint import pprint
+from uname_pass
 
-UID = 'eng'
-PWD = 'cmn123!'
+UID = uname_pass.username 
+PWD = uname_pass.password 
 route_table = 'inet.0'
 
 acx = ['10.126.128.4', '10.126.128.5', '10.126.144.4', '10.126.144.5']

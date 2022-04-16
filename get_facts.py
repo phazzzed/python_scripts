@@ -1,9 +1,10 @@
 from jnpr.junos import Device
 from jnpr.junos.exception import ConnectError
 from pprint import pprint
+import uname_pass
 
-UID = 'eng'
-PWD = 'cmn123!'
+UID = uname_pass.username 
+PWD = uname_pass.password
 
 acx = ['10.126.128.4', '10.126.128.5', '10.126.144.4', '10.126.144.5']
 mx = [ '10.126.128.1', '10.126.128.2', '10.126.144.1', '10.126.144.2']
@@ -14,10 +15,10 @@ for current_device in mx:
      try:
           current_router.open()
      except ConnectError as err:
-          print("cannot connect to device: {0}" .format(err))
+          print("main() - cannot connect to device: {0}" .format(err))
           continue
 
-     pprint('facts about ' + str(current_router.facts['hostname']) + ' are: ' + str(current_router.facts))
+     pprint('main() - facts about ' + str(current_router.facts['hostname']) + ' are: ' + str(current_router.facts))
      current_router.close()
-     pprint('closed connection to: ' + str(current_router.facts['hostname']))
+     pprint('main() - closed connection to: ' + str(current_router.facts['hostname']))
 

@@ -3,9 +3,10 @@ from jnpr.junos.exception import ConnectError
 from pprint import pprint
 from lxml import etree
 import sys
+import uname_pass
 
-UID = 'eng'
-PWD = 'cmn123!'
+UID = uname_pass.username 
+PWD = uname_pass.password 
 
 with open(sys.argv[1], 'r') as f:
      lines = [line.rstrip('\n') for line in f]
