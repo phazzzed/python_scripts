@@ -1,4 +1,3 @@
-from random import vonmisesvariate
 from jnpr.junos import Device
 from jnpr.junos.exception import ConnectError
 from pprint import pprint
