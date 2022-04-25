@@ -1,0 +1,113 @@
+---
+devices :
+ - hostname : "cc23-r-001"
+   ip : "10.126.128.1"
+   role : "provider"
+   type : router
+
+ - hostname : "cc23-r-002"
+   ip : "10.126.144.1"
+   role : "provider"
+   type : router
+
+ - hostname : "cc23-r-061" 
+   ip : "10.126.128.2"
+   role : "provider"
+   type : router
+
+ - hostname : "cc23-r-062" 
+   ip : "10.126.144.2"
+   role : "provider"
+   type : router
+
+ - hostname : "cc23-r-361"
+   ip : "10.126.128.4"
+   role : "provider edge"
+   type : router
+
+ - hostname : "cc23-r-362"
+   ip : "10.126.128.5"
+   role : "provider edge"
+   type : router
+
+ - hostname : "cc23-r-363"
+   ip : "10.126.144.4"
+   role : "provider edge"
+   type : router
+
+ - hostname : "cc23-r-364" 
+   ip : "10.126.144.5"
+   role : "provider edge"
+   type : router
+
+ - hostname : "cc23-s-361"
+   ip :  "10.126.142.2"
+   role : "access switch"
+   type : switch
+
+ - hostname : "cc23-s-362" 
+   ip : "10.126.142.3"
+   role : "access switch"
+   type : switch
+
+ - hostname : "cc23-s-363" 
+   ip : "10.126.142.10"
+   role : "access switch"
+   type : switch
+
+ - hostname : "cc23-s-364" 
+   ip : "10.126.142.11"
+   role : "oss switch"
+   type : switch
+
+ - hostname : "cc23-s-064"
+   ip :  "10.126.142.4"
+   role : "oss switch"
+   type : switch
+
+ - hostname : "cc23-s-065"
+   ip : "10.126.142.5"
+   role : "oss switch"
+   type : switch
+
+ - hostname : "cc23-s-066"
+   ip : "10.126.142.12"
+   role : "oss switch"
+   type : switch
+
+ - hostname : "cc23-s-067" 
+   ip : "10.126.142.13"
+   role : "oss switch"
+   type : switch
+
+ - hostname : "cc23-s-861" 
+   ip : "10.126.145.100"
+   role : "aggregation switch"
+   type : switch
+
+ - hostname : "cc23-s-862"
+   ip : "10.126.145.101"
+   role : "aggregation switch"
+   type : switch
+
+ - hostname : "cc23-s-863"
+   ip : "10.126.145.102"
+   role : "aggregation switch"
+   type : switch
+
+ - hostname : "cc23-s-864"
+   ip : "10.126.145.103"
+   role : "aggregation switch"
+   type : switch
+
+ - hostname : "c4b3-s-861"
+   ip : "10.126.145.117"
+   role : "aggregation switch"
+   type : switch
+
+ - hostname : "c4b3-s-862"
+   ip :  "10.126.145.118"
+   role : "aggregation switch"
+   type : switch
+
+

@@ -1,0 +1,42 @@
+---
+devices : 
+ - hostname : cc23-r-001 
+   ip : 10.126.128.1
+   role : provider
+   type : router
+
+ - hostname : cc23-r-002 
+   ip : 10.126.144.1
+   role : provider
+   type : router
+
+ - hostname : cc23-r-061 
+   ip : 10.126.128.2
+   role : provider
+   type : router
+
+ - hostname : cc23-r-062 
+   ip : 10.126.144.2
+   role : provider
+   type : router
+
+ - hostname : cc23-r-361 
+   ip : 10.126.128.4
+   role : provider edge
+   type : router
+
+ - hostname : cc23-r-362 
+   ip : 10.126.128.5
+   role : provider edge
+   type : router
+
+ - hostname : cc23-r-363 
+   ip : 10.126.144.4
+   role : provider edge
+   type : router
+
+ - hostname : cc23-r-364 
+   ip : 10.126.144.5
+   role : provider edge
+   type : router
+

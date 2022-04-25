@@ -23,20 +23,19 @@ def main():
           try:
                with Device(host = loaded_device['ip'], password=PWD, user=UID, normalize=True) as current_device:
                     device_hostname = current_device.facts['hostname']
-                    print('********** - connected to {0} - **********'.format(device_hostname))
+                    print('********** - connected to {0} - **********', device_hostname)
                      
                     with Config(current_device) as cu:
                          rescue = cu.rescue(action='get', format='text')
                          if rescue is None:
-                              print('********** - no existing rescue configuration set on {0}, saving now'.format(device_hostname))
-                              cu.rescue(action='save')
+                              print('********** - no existing rescue configuration on {0}, skipping over device'.format(device_hostname))
+                              continue
                          else:
-                              print('********** - rescue configuration already set on {0}:'.format(device_hostname))
-                              pprint(rescue) 
-
-               print('********** - exited from {0}'.format(device_hostname))
+                              print('********** - rescue configuration found on {0}, deleting now'.format(device_hostname))
+                              cu.rescue(action='delete')
+               print('********** - exited from {0} - **********'.format(device_hostname))
           except ConnectError as err:
-               print ('!!!!!!!!!! - thrown ConnectError exception : ' + str(err))
+               print ('!!!!!!!!!! - thrown ConnectError exception: ' + str(err))
 
 if __name__ == '__main__':
      main()

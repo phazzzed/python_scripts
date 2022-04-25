@@ -5,7 +5,7 @@ from pprint import pprint
 from lxml import etree
 import sys
 import uname_pass 
-
+import os
 
 def ingressLSR(label_lsr_list):
     UID = uname_pass.username 
@@ -108,32 +108,38 @@ def egressLSR(ip_egressLSR):
     print('egressLSR() - successfully disconnected from: ' + str(ip_egressLSR))
 
 def main():
-    UID = uname_pass.username 
-    PWD = uname_pass.password 
+     UID = uname_pass.username 
+     PWD = uname_pass.password
 
-    ip_ingressLSR = sys.argv[1]
-    destination_L3VPN = sys.argv[2] 
-    destination_subnet = sys.argv[3]
+     if len(sys.argv) != 4:
+          print('!!!!!!!!!! - exiting, wrong parameters used')
+          print('!!!!!!!!!! - please use: ' +  os.path.basename(__file__) + ' <ip of ingressLSR> <destination L3VPN> <destination subnet>')
+          exit()
+     else:
+          print('main() - parameters selected are :')
+          print('main() - ingress LSR ip = {0}'.format(sys.argv[1]))
+          print('main() - destination L3VPN  = {0}'.format(sys.argv[2]))
+          print('main() - destination subnet = {0}'.format(sys.argv[3]))
 
-    label_lsr_list = []
+     ip_ingressLSR = sys.argv[1]
+     destination_L3VPN = sys.argv[2] 
+     destination_subnet = sys.argv[3]
 
-    print('main() - L3VPN selected: ' + str(destination_L3VPN))
-    print('main() - Subnet selected: ' + str(destination_subnet))
+     label_lsr_list = []
 
-    ip_egressLSR = ingressLSR(label_lsr_list)
+     ip_egressLSR = ingressLSR(label_lsr_list)
 
-    label_toReachNextLSR = label_lsr_list[-1]['label']
-    ip_nextLSR = label_lsr_list[-1]['next_LSR_IP']
+     label_toReachNextLSR = label_lsr_list[-1]['label']
+     ip_nextLSR = label_lsr_list[-1]['next_LSR_IP']
     
-    if label_toReachNextLSR != '3':
-        print('main() - detected label ' + str(label_toReachNextLSR) + ' - entering transitLSR function')
-        transitLSR(ip_egressLSR, label_lsr_list)
-    else:
-        print('main() - detected label 3 so ' + str(ip_nextLSR) + ' is the egress LSR. not entering recursive TransitLSR function')
+     if label_toReachNextLSR != '3':
+          print('main() - detected label ' + str(label_toReachNextLSR) + ' - entering transitLSR function')
+          transitLSR(ip_egressLSR, label_lsr_list)
+     else:
+          print('main() - detected label 3 so ' + str(ip_nextLSR) + ' is the egress LSR. not entering recursive TransitLSR function')
 
-    egressLSR(ip_egressLSR)
-
+     egressLSR(ip_egressLSR)
 
 if __name__ == "__main__":
-    main()
+     main()
 
